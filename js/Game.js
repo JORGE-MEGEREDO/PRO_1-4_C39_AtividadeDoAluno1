@@ -41,11 +41,25 @@ class Game {
   }
 
   //SA
-  play() {
-    this.handleElements();
+ play() {
+ this.handleElements();
+ Player.getPlayers Info(); //added
+ if (allPlayers !== undefined) { //se todos os jogadores já estiverem definidos, irá exibir a pista e os carros
+ image(track, 0, -height 5, width, height = 6); 
+ for (var plr in allPlayers) {
+var xallPlayers [plr].positionX;
+var y height allPlayers [plr].positionY;
+cars[index].position.x = x;
+cars[index].position.y = y;
+//adiciona um ao indice anterior
+index = index + 1;
+ }
 
-    //Player.getPlayersInfo();
-
+//se a tecla pressionada para baixo é a SETA PARA CIMA
+if (keyIsDown (UP_ARROW)) { 
+  player.positionY += 10; 
+  player.update(); //atualize a posição no banco de dados 
+}
    
       drawSprites();
     }
