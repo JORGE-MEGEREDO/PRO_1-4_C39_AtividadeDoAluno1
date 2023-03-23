@@ -51,3 +51,27 @@ class Form {
     this.handleMousePressed();
   }
 }
+
+updateCount(count) { //atualiza a contagem
+database.ref("/").update({
+playerCount: count
+});
+}
+
+update() { //atualiza as informações no banco de dados sobre o jogador AULA C39
+var playerIndex = "players/player"+this.index;
+database.ref(playerIndex).update({
+name: this.name,
+positionX: this.positionX,
+positionY: this.positionY,
+});
+
+//As funções estáticas não são anexadas a nenhum objeto da classe. Estamos tentando obter todas as informações dos jogadores
+//- e isso não envolve nenhum objeto em particular. AULA C39
+static getPlayersInfo() {
+var playerInfoRef database.ref("players");
+playerInfoRef.on("value", data => {
+allPlayers = data.val();
+  });
+ }  
+}
